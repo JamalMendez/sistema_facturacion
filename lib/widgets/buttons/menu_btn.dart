@@ -3,23 +3,22 @@ import 'package:flutter/material.dart';
 class MenuButton extends StatefulWidget {
   const MenuButton({
     super.key,
-    required this.button_text,
+    required this.buttonText,
   });
 
-  final String button_text;
+  final String buttonText;
 
   @override
-  State<MenuButton> createState() => _MenuButtonState(button_text: button_text);
+  State<MenuButton> createState() => _MenuButtonState(buttonText: buttonText);
 }
 
 class _MenuButtonState extends State<MenuButton> {
 
   _MenuButtonState({
-    required this.button_text,
+    required this.buttonText,
   });
 
-  final String button_text;
-  int button_color = 0xFF1E1E1E;
+  final String buttonText;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,7 @@ class _MenuButtonState extends State<MenuButton> {
         print("object");
       },
       child: Text(
-        button_text,
+        buttonText,
         style: TextStyle(
           color: Colors.white,
         ),

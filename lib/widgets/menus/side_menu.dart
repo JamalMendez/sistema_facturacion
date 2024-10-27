@@ -23,13 +23,13 @@ class SideMenu extends StatelessWidget {
           Spacer(),
           Column(
             children: [
-              MenuButton(button_text: "Factura"),
+              MenuButton(buttonText: "Factura"),
               SizedBox(height: 12,),
-              MenuButton(button_text: "Clientes"),
+              MenuButton(buttonText: "Clientes"),
               SizedBox(height: 12,),
-              MenuButton(button_text: "Productos"),
+              MenuButton(buttonText: "Productos"),
               SizedBox(height: 12,),
-              MenuButton(button_text: "Tipo de pago y NCF"),
+              MenuButton(buttonText: "Tipo de pago y NCF"),
             ],
           ),
           SizedBox(height: 100,),
