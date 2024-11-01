@@ -23,7 +23,7 @@ class AcceptDeleteButton extends StatelessWidget {
       onPressed: () {print('object');},
       style: ElevatedButton.styleFrom(
         backgroundColor: buttonColor,
-        fixedSize: Size(150.0, 45.0),
+        fixedSize: Size(110.0, 45.0),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3.0)),
       ),
       child: Text(

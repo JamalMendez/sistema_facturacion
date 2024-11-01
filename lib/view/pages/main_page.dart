@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sistema_facturacion/widgets/menus/side_menu.dart';
+import 'package:sistema_facturacion/view/widgets/menus/side_menu.dart';
 
 
 class MainPage extends StatefulWidget {
@@ -12,7 +12,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Row(
         children: [
           SideMenu(),

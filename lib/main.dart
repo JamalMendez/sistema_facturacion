@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sistema_facturacion/pages/main_page.dart';
+import 'package:sistema_facturacion/view/pages/main_page.dart';
 
 void main() {
   runApp(const MyApp());
