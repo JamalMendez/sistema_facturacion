@@ -27,50 +27,53 @@ class _AddItemMenuState extends State<AddItemMenu> {
       color: const Color(0xFF1E1E1E),
       height: MediaQuery.of(context).size.height,
       width: 350.0,
-      child: Column(
-        children: [
-          Container(
-            child: QuitButton(),
-            alignment: Alignment.centerRight,
-            padding: EdgeInsets.all(5),
-          ),
-          SizedBox(height: 15),
-          Text(
-            widget.titleMenu,
-            style: TextStyle(
-              color: const Color(0xFF18843A),
-              fontSize: 30.0,
-              fontWeight: FontWeight.bold,
+      child: Form(
+        autovalidateMode: AutovalidateMode.always,
+        child: Column(
+          children: [
+            Container(
+              child: QuitButton(),
+              alignment: Alignment.centerRight,
+              padding: EdgeInsets.all(5),
             ),
-          ),
-          SizedBox(height: 10),
-          // Insertar el Scrollbar aquí
-          Expanded(
-            child: RawScrollbar(
-              controller: controller,
-              thumbVisibility: true,
-              radius: Radius.circular(10),
-              thickness: 6.0,
-              thumbColor: Colors.greenAccent,
-              child: SingleChildScrollView(
+            SizedBox(height: 15),
+            Text(
+              widget.titleMenu,
+              style: TextStyle(
+                color: const Color(0xFF18843A),
+                fontSize: 30.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 10),
+            // Insertar el Scrollbar aquí
+            Expanded(
+              child: RawScrollbar(
                 controller: controller,
-                child: Column(
-                  children: widget.widgetItems,
+                thumbVisibility: true,
+                radius: Radius.circular(10),
+                thickness: 6.0,
+                thumbColor: Colors.greenAccent,
+                child: SingleChildScrollView(
+                  controller: controller,
+                  child: Column(
+                    children: widget.widgetItems,
+                  ),
                 ),
               ),
             ),
-          ),
-          Container(
-            child: Row(
-              children: [
-                AcceptDeleteButton(),
-                Spacer(),
-                AcceptDeleteButton(isDelete: true),
-              ],
+            Container(
+              child: Row(
+                children: [
+                  AcceptDeleteButton(),
+                  Spacer(),
+                  AcceptDeleteButton(isDelete: true),
+                ],
+              ),
+              padding: EdgeInsets.all(10),
             ),
-            padding: EdgeInsets.all(10),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

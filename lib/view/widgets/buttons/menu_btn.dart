@@ -9,16 +9,10 @@ class MenuButton extends StatefulWidget {
   final String buttonText;
 
   @override
-  State<MenuButton> createState() => _MenuButtonState(buttonText: buttonText);
+  State<MenuButton> createState() => _MenuButtonState();
 }
 
 class _MenuButtonState extends State<MenuButton> {
-
-  _MenuButtonState({
-    required this.buttonText,
-  });
-
-  final String buttonText;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +21,7 @@ class _MenuButtonState extends State<MenuButton> {
         print("object");
       },
       child: Text(
-        buttonText,
+        widget.buttonText,
         style: TextStyle(
           color: Colors.white,
         ),
