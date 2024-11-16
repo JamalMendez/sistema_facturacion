@@ -32,26 +32,25 @@ class _AddItemMenuState extends State<AddItemMenu> {
         child: Column(
           children: [
             Container(
-              child: QuitButton(),
               alignment: Alignment.centerRight,
-              padding: EdgeInsets.all(5),
+              padding: const EdgeInsets.all(5),
+              child: const QuitButton(),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Text(
               widget.titleMenu,
-              style: TextStyle(
-                color: const Color(0xFF18843A),
+              style: const TextStyle(
+                color: Color(0xFF18843A),
                 fontSize: 30.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
-            // Insertar el Scrollbar aquí
+            const SizedBox(height: 10),
             Expanded(
               child: RawScrollbar(
                 controller: controller,
                 thumbVisibility: true,
-                radius: Radius.circular(10),
+                radius: const Radius.circular(10),
                 thickness: 6.0,
                 thumbColor: Colors.greenAccent,
                 child: SingleChildScrollView(
@@ -63,14 +62,14 @@ class _AddItemMenuState extends State<AddItemMenu> {
               ),
             ),
             Container(
-              child: Row(
+              padding: const EdgeInsets.all(10),
+              child: const Row(
                 children: [
                   AcceptDeleteButton(),
                   Spacer(),
                   AcceptDeleteButton(isDelete: true),
                 ],
               ),
-              padding: EdgeInsets.all(10),
             ),
           ],
         ),

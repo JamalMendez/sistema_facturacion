@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sistema_facturacion/view/widgets/buttons/menu_btn.dart';
+import 'package:sistema_facturacion/view/widgets/buttons/generic_btn.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({super.key});
@@ -22,19 +22,49 @@ class SideMenu extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          const Column(
+          Column(
             children: [
-              MenuButton(buttonText: "Factura"),
-              SizedBox(height: 12,),
-              MenuButton(buttonText: "Clientes"),
-              SizedBox(height: 12,),
-              MenuButton(buttonText: "Productos"),
-              SizedBox(height: 12,),
-              MenuButton(buttonText: "Tipo de pago"),
-              SizedBox(height: 12,),
-              MenuButton(buttonText: "Tipo de productos"),
-              SizedBox(height: 12,),
-              MenuButton(buttonText: "NCF"),
+              GenericButton(
+                buttonText: "Factura",
+                onPressed: (){
+                  print('algo');
+                },
+              ),
+              const SizedBox(height: 12,),
+              GenericButton(
+                buttonText: "Clientes",
+                onPressed: (){
+                  print('algo');
+                },
+              ),
+              const SizedBox(height: 12,),
+              GenericButton(
+                buttonText: "Productos",
+                onPressed: (){
+                  print('algo');
+                },
+              ),
+              const SizedBox(height: 12,),
+              GenericButton(
+                buttonText: "Tipo de pago",
+                onPressed: (){
+                  print('algo');
+                },
+              ),
+              const SizedBox(height: 12,),
+              GenericButton(
+                buttonText: "Tipo de productos",
+                onPressed: (){
+                  print('algo');
+                },
+              ),
+              const SizedBox(height: 12,),
+              GenericButton(
+                buttonText: "NCF",
+                onPressed: (){
+                  print('algo');
+                },
+              ),
             ],
           ),
           const SizedBox(height: 100,),

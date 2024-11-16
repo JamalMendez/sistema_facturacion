@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sistema_facturacion/view/widgets/buttons/generic_btn.dart';
 
 class TableTemplate extends StatefulWidget {
   final List<String> columns;
@@ -57,13 +58,28 @@ class _TableTemplateState extends State<TableTemplate> {
 
   List<Widget> DataRowSetter(int position){
     List<Widget> row = [];
+    Color buttonColor = Colors.grey;
 
     for(int i = 0; i < widget.dataRow[position].length; i++){
       row.add(TableCellTemplate(Text(widget.dataRow[position][i].toString())));
     }
 
-    row.add(TableCellTemplate(ElevatedButton(onPressed: (){print('elevated button');}, child: Text('Editar'))));
-    row.add(TableCellTemplate(ElevatedButton(onPressed: (){print('elevated button');}, child: Text('Generar PDF'))));
+    row.add(TableCellTemplate(GenericButton(
+      buttonText: 'Editar',
+      buttonColor: const Color(0xFF18843A),
+      hoverColor: const Color(0xFFA0C020),
+      onPressed: (){
+        print('Editar');
+      }
+    )));
+    row.add(TableCellTemplate(GenericButton(
+      buttonText: 'Generar PDF',
+      buttonColor: const Color(0xFF18843A),
+      hoverColor: const Color(0xFFA0C020),
+      onPressed: (){
+        print('Generar PDF');
+      }
+    )));
 
     return row;
   }

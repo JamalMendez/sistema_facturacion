@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sistema_facturacion/view/widgets/buttons/generic_btn.dart';
 
 import '../widgets/table_template.dart';
 
@@ -20,12 +21,27 @@ class ClientPage extends StatelessWidget {
           children: [
             Row(
               children: [
+                const Spacer(),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Text(
                     'Clientes',
                     style: textStyle,
                   ),
+                ),
+                const Spacer(),
+                const Spacer(),
+                const Spacer(),
+                const Spacer(),
+                const Spacer(),
+                GenericButton(
+                  buttonText:   'Registrar Cliente',
+                  buttonColor: const Color(0xFF18843A),
+                  hoverColor: const Color(0xFFA0C020),
+                  isTitle: true,
+                  onPressed: (){
+                    print('Crear');
+                  }
                 ),
                 const Spacer(),
               ],
