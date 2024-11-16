@@ -15,6 +15,7 @@ class TableTemplate extends StatefulWidget {
 }
 
 class _TableTemplateState extends State<TableTemplate> {
+  Color darkGreen = const Color(0xFF18843A);
   var listColumnTitleCell = <Widget>[];
   var listDataRow = <TableRow>[];
   var tableCellTextStyle = TextStyle(
@@ -68,7 +69,19 @@ class _TableTemplateState extends State<TableTemplate> {
   }
 
   void ListDataRowSetter(){
-    listDataRow.add(TableRow(children: listColumnTitleCell));
+    listDataRow.add(
+      TableRow(
+        children: listColumnTitleCell,
+        decoration: BoxDecoration(
+          border: Border(
+              bottom: BorderSide(
+                color: darkGreen,
+                width: 4.0,
+              )
+          )
+        )
+      )
+    );
 
     for(int i = 0; i < widget.dataRow.length; i++){
       listDataRow.add(TableRow(children: DataRowSetter(i)));
@@ -77,6 +90,7 @@ class _TableTemplateState extends State<TableTemplate> {
 
   @override
   Widget build(BuildContext context) {
+    ScrollController controller = ScrollController();
     listColumnTitleCell = [];
     listDataRow = [];
 
@@ -84,12 +98,24 @@ class _TableTemplateState extends State<TableTemplate> {
     ListDataRowSetter();
 
     return Expanded(
-      child: Container(
-        height: double.infinity,
-        child: Table(
-          border: TableBorder.all(color: Colors.grey),
-          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-          children: listDataRow,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Container(
+          height: double.infinity,
+          child: RawScrollbar(
+            controller: controller,
+            thumbVisibility: true,
+            radius: Radius.circular(10),
+            thickness: 6.0,
+            thumbColor: Colors.greenAccent,
+            child: SingleChildScrollView(
+              controller: controller,
+              child: Table(
+                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                children: listDataRow,
+              ),
+            ),
+          ),
         ),
       ),
     );

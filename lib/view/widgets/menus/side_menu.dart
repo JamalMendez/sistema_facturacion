@@ -8,21 +8,21 @@ class SideMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFF1E1E1E),
+      color: const Color(0xFF1E1E1E),
       height: MediaQuery.of(context).size.height,
       width: 250.0,
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(16.0),
-            child: Image(
+            padding: const EdgeInsets.all(16.0),
+            child: const Image(
               image: AssetImage("assets/images/electro_logo.png"),
               width: 250.0,
               height: 100.0,
             ),
           ),
-          Spacer(),
-          Column(
+          const Spacer(),
+          const Column(
             children: [
               MenuButton(buttonText: "Factura"),
               SizedBox(height: 12,),
@@ -30,11 +30,15 @@ class SideMenu extends StatelessWidget {
               SizedBox(height: 12,),
               MenuButton(buttonText: "Productos"),
               SizedBox(height: 12,),
-              MenuButton(buttonText: "Tipo de pago y NCF"),
+              MenuButton(buttonText: "Tipo de pago"),
+              SizedBox(height: 12,),
+              MenuButton(buttonText: "Tipo de productos"),
+              SizedBox(height: 12,),
+              MenuButton(buttonText: "NCF"),
             ],
           ),
-          SizedBox(height: 100,),
-          Spacer(),
+          const SizedBox(height: 100,),
+          const Spacer(),
         ],
       ),
     );
