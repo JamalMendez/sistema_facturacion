@@ -17,7 +17,10 @@ class _MainPageState extends State<MainPage> {
       body: Row(
         children: [
           SideMenu(),
-          TableTemplate(columns: <String>['pepe', 'papa', 'popa']),
+          TableTemplate(
+            columns: <String>['pepe', 'papa', 'popa'],
+            dataRow: <List<Object>>[['pepe', 1, 'popa'],['pepe', 43.43, 'popa'],[Null, 'papa', 'popa'],['pepe', true, 'popa'],['pepe', 'papa', 'popa'],['pepe', 'papa', 'popa']],
+          ),
         ],
       ),
     );
