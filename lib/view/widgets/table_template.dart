@@ -58,7 +58,6 @@ class _TableTemplateState extends State<TableTemplate> {
 
   List<Widget> DataRowSetter(int position){
     List<Widget> row = [];
-    Color buttonColor = Colors.grey;
 
     for(int i = 0; i < widget.dataRow[position].length; i++){
       row.add(TableCellTemplate(Text(widget.dataRow[position][i].toString())));

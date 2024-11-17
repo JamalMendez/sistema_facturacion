@@ -30,7 +30,7 @@ class _GenericButtonState extends State<GenericButton> {
     if(widget.isTitle){
       textStyle = const TextStyle(
           color: Colors.white,
-          fontSize: 19.0,
+          fontSize: 15.0,
           fontWeight: FontWeight.bold,
           height: 2.5,
       );

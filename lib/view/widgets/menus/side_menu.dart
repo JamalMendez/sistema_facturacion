@@ -1,9 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sistema_facturacion/view/pages/main_page.dart';
 import 'package:sistema_facturacion/view/widgets/buttons/generic_btn.dart';
 
 class SideMenu extends StatelessWidget {
-  const SideMenu({super.key});
+  const SideMenu({
+    super.key,
+    required this.onItemSelected,
+  });
+
+
+  final Function(int) onItemSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -27,42 +34,42 @@ class SideMenu extends StatelessWidget {
               GenericButton(
                 buttonText: "Factura",
                 onPressed: (){
-                  print('algo');
+                  onItemSelected(0);
                 },
               ),
               const SizedBox(height: 12,),
               GenericButton(
                 buttonText: "Clientes",
                 onPressed: (){
-                  print('algo');
+                  onItemSelected(1);
                 },
               ),
               const SizedBox(height: 12,),
               GenericButton(
                 buttonText: "Productos",
                 onPressed: (){
-                  print('algo');
+                  onItemSelected(2);
                 },
               ),
               const SizedBox(height: 12,),
               GenericButton(
                 buttonText: "Tipo de pago",
                 onPressed: (){
-                  print('algo');
+                  onItemSelected(3);
                 },
               ),
               const SizedBox(height: 12,),
               GenericButton(
                 buttonText: "Tipo de productos",
                 onPressed: (){
-                  print('algo');
+                  onItemSelected(4);
                 },
               ),
               const SizedBox(height: 12,),
               GenericButton(
                 buttonText: "NCF",
                 onPressed: (){
-                  print('algo');
+                  onItemSelected(5);
                 },
               ),
             ],
