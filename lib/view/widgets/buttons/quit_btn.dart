@@ -6,9 +6,7 @@ class QuitButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: (){
-        print("object");
-      },
+      onPressed: () => Navigator.pop(context),
       child: Icon(
         Icons.close,
         color: Colors.white,

@@ -1,17 +1,20 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class InputText extends StatelessWidget {
   final bool isRequired;
   final int maxLines;
   final String label;
+  final bool isOnlyNumber;
 
   const InputText({
     super.key,
     required this.label,
     this.isRequired = false,
     this.maxLines = 1,
+    this.isOnlyNumber = false
   });
 
   String? FieldRequired(String? value){
@@ -19,8 +22,17 @@ class InputText extends StatelessWidget {
     return null;
   }
 
+
   @override
   Widget build(BuildContext context) {
+    TextInputType inputType = TextInputType.text;
+    List<TextInputFormatter> listTextInputFormatter = [];
+
+    if(isOnlyNumber){
+      inputType = TextInputType.number;
+      listTextInputFormatter.add(FilteringTextInputFormatter.digitsOnly);
+    }
+
     return Container(
       width: 300.0,
       padding: EdgeInsets.fromLTRB(0, 6, 0, 6),
@@ -34,6 +46,8 @@ class InputText extends StatelessWidget {
             ),
           ),
           TextFormField(
+            keyboardType: inputType,
+            inputFormatters: listTextInputFormatter,
             maxLines: maxLines,
             style: TextStyle(
               height: 0.80,

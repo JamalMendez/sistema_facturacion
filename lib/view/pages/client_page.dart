@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sistema_facturacion/view/widgets/buttons/generic_btn.dart';
+import 'package:sistema_facturacion/view/widgets/input_text.dart';
+import 'package:sistema_facturacion/view/widgets/menus/add_item_menu.dart';
 
 import '../widgets/table_template.dart';
 
@@ -40,7 +42,25 @@ class ClientPage extends StatelessWidget {
                 hoverColor: const Color(0xFFA0C020),
                 isTitle: true,
                 onPressed: (){
-                  print('Crear');
+                  showDialog(
+                    context: context,
+                    barrierColor: Colors.black.withOpacity(0.5),
+                    builder: (BuildContext context) {
+                      return Align(
+                        alignment: Alignment.centerRight,
+                        child: Material(
+                          color: Colors.white,
+                          child: AddItemMenu(
+                            titleMenu: 'titleMenu',
+                            widgetItems: [
+                              InputText(label: 'label'),
+                              InputText(label: 'label', isOnlyNumber: true,)
+                            ]
+                          ),
+                        )
+                      );
+                    },
+                  );
                 }
               ),
               const Spacer(),
