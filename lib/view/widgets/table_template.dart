@@ -4,11 +4,13 @@ import 'package:sistema_facturacion/view/widgets/buttons/generic_btn.dart';
 class TableTemplate extends StatefulWidget {
   final List<String> columns;
   final List<List<Object>> dataRow;
+  final bool pdfButton;
 
   const TableTemplate({
     super.key,
     required this.columns,
     required this.dataRow,
+    this.pdfButton = false
   });
 
   @override
@@ -53,7 +55,7 @@ class _TableTemplateState extends State<TableTemplate> {
       AddColumnTitleCell(widget.columns[i]);
     }
     AddColumnTitleCell('Editar');
-    AddColumnTitleCell('Generar PDF');
+    if (widget.pdfButton) AddColumnTitleCell('Generar PDF');
   }
 
   List<Widget> DataRowSetter(int position){
@@ -71,14 +73,16 @@ class _TableTemplateState extends State<TableTemplate> {
         print('Editar');
       }
     )));
-    row.add(TableCellTemplate(GenericButton(
-      buttonText: 'Generar PDF',
-      buttonColor: const Color(0xFF18843A),
-      hoverColor: const Color(0xFFA0C020),
-      onPressed: (){
-        print('Generar PDF');
-      }
-    )));
+
+    if (widget.pdfButton) {
+      row.add(TableCellTemplate(GenericButton(
+          buttonText: 'Generar PDF',
+          buttonColor: const Color(0xFF18843A),
+          hoverColor: const Color(0xFFA0C020),
+          onPressed: () {
+            print('Generar PDF');
+          })));
+    }
 
     return row;
   }

@@ -47,6 +47,7 @@ class BillPage extends StatelessWidget {
           ),
           const SizedBox(height: 10.0,),
           const TableTemplate(
+            pdfButton: true,
             columns: <String>['pepe', 'papa', 'popa'],
             dataRow: <List<Object>>[
               ['pepe', 1, 'popa'],
