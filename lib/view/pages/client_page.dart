@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sistema_facturacion/view/widgets/buttons/generic_btn.dart';
+import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:sistema_facturacion/view/widgets/input_text.dart';
 import 'package:sistema_facturacion/view/widgets/menus/add_item_menu.dart';
 
@@ -54,7 +55,7 @@ class ClientPage extends StatelessWidget {
                             titleMenu: 'titleMenu',
                             widgetItems: [
                               InputText(label: 'label'),
-                              InputText(label: 'label', isOnlyNumber: true,)
+                              InputText(label: 'label', isOnlyNumber: true,),
                             ]
                           ),
                         )

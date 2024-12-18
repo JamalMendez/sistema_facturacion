@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 class InputText extends StatelessWidget {
   final bool isRequired;
   final int maxLines;
+  final int? maxLengths;
   final String label;
   final bool isOnlyNumber;
 
@@ -14,7 +15,8 @@ class InputText extends StatelessWidget {
     required this.label,
     this.isRequired = false,
     this.maxLines = 1,
-    this.isOnlyNumber = false
+    this.isOnlyNumber = false,
+    this.maxLengths,
   });
 
   String? FieldRequired(String? value){
@@ -48,6 +50,7 @@ class InputText extends StatelessWidget {
           TextFormField(
             keyboardType: inputType,
             inputFormatters: listTextInputFormatter,
+            maxLength: maxLengths,
             maxLines: maxLines,
             style: TextStyle(
               height: 0.80,
