@@ -53,23 +53,9 @@ class SideMenu extends StatelessWidget {
               ),
               const SizedBox(height: 12,),
               GenericButton(
-                buttonText: "Tipo de pago",
-                onPressed: (){
-                  onItemSelected(3);
-                },
-              ),
-              const SizedBox(height: 12,),
-              GenericButton(
-                buttonText: "Tipo de productos",
-                onPressed: (){
-                  onItemSelected(4);
-                },
-              ),
-              const SizedBox(height: 12,),
-              GenericButton(
                 buttonText: "NCF",
                 onPressed: (){
-                  onItemSelected(5);
+                  onItemSelected(3);
                 },
               ),
             ],

@@ -1,24 +1,22 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:sistema_facturacion/view/widgets/buttons/accept_delete_btn.dart';
 import 'package:sistema_facturacion/view/widgets/buttons/quit_btn.dart';
 
-class AddItemMenu extends StatefulWidget {
+class Forms extends StatefulWidget {
   final String titleMenu;
   final List<Widget> widgetItems;
 
-  AddItemMenu({
+  const Forms({
     super.key,
     required this.titleMenu,
     required this.widgetItems,
   });
 
   @override
-  State<AddItemMenu> createState() => _AddItemMenuState();
+  State<Forms> createState() => _FormsState();
 }
 
-class _AddItemMenuState extends State<AddItemMenu> {
+class _FormsState extends State<Forms> {
   ScrollController controller = ScrollController();
 
   @override
@@ -41,7 +39,7 @@ class _AddItemMenuState extends State<AddItemMenu> {
               widget.titleMenu,
               style: const TextStyle(
                 color: Color(0xFF18843A),
-                fontSize: 30.0,
+                fontSize: 28.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -63,12 +61,8 @@ class _AddItemMenuState extends State<AddItemMenu> {
             ),
             Container(
               padding: const EdgeInsets.all(10),
-              child: const Row(
-                children: [
-                  AcceptDeleteButton(),
-                  Spacer(),
-                  AcceptDeleteButton(isDelete: true),
-                ],
+              child: AcceptDeleteButton(
+                onPressed: () { print("objeto"); },
               ),
             ),
           ],

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sistema_facturacion/view/widgets/buttons/generic_btn.dart';
+import 'package:sistema_facturacion/view/widgets/input_text.dart';
+import 'package:sistema_facturacion/view/widgets/menus/forms.dart';
 import 'package:sistema_facturacion/view/widgets/table_template.dart';
 
 class NCFPage extends StatelessWidget {
@@ -39,7 +41,26 @@ class NCFPage extends StatelessWidget {
                   hoverColor: const Color(0xFFA0C020),
                   isTitle: true,
                   onPressed: (){
-                    print('Crear');
+                    showDialog(
+                      context: context,
+                      barrierColor: Colors.black.withOpacity(0.5),
+                      builder: (BuildContext context) {
+                        return const Align(
+                            alignment: Alignment.centerRight,
+                            child: Material(
+                              color: Colors.white,
+                              child: Forms(
+                                  titleMenu: 'titleMenu',
+                                  widgetItems: [
+                                    InputText(label: 'Serie', maxLengths: 1, isRequired: true,),
+                                    InputText(label: 'Tipo', maxLengths: 2, isOnlyNumber: true, isRequired: true,),
+                                    InputText(label: 'Secuencia', maxLengths: 8, isOnlyNumber: true, isRequired: true,),
+                                  ]
+                              ),
+                            )
+                        );
+                      },
+                    );
                   }
               ),
               const Spacer(),

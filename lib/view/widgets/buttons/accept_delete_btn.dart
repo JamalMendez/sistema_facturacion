@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class AcceptDeleteButton extends StatelessWidget {
 
   final bool isDelete;
+  final void Function()? onPressed;
 
   const AcceptDeleteButton({
     super.key,
     this.isDelete = false,
+    required this.onPressed,
   });
 
   @override
@@ -20,7 +22,7 @@ class AcceptDeleteButton extends StatelessWidget {
     }
 
     return ElevatedButton(
-      onPressed: () {print('object');},
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: buttonColor,
         fixedSize: Size(110.0, 45.0),

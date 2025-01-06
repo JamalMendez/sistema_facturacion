@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sistema_facturacion/view/widgets/buttons/generic_btn.dart';
+import 'package:sistema_facturacion/view/widgets/input_text.dart';
+import 'package:sistema_facturacion/view/widgets/menus/forms.dart';
 import 'package:sistema_facturacion/view/widgets/table_template.dart';
 
 class BillPage extends StatelessWidget {
@@ -33,14 +35,47 @@ class BillPage extends StatelessWidget {
               const Spacer(),
               const Spacer(),
               const Spacer(),
-              GenericButton(
-                  buttonText:   'Registrar Factura',
-                  buttonColor: const Color(0xFF18843A),
-                  hoverColor: const Color(0xFFA0C020),
-                  isTitle: true,
-                  onPressed: (){
-                    print('Crear');
-                  }
+              Row(
+                children: [
+                  GenericButton(
+                      buttonText:   'Registrar Factura',
+                      buttonColor: const Color(0xFF18843A),
+                      hoverColor: const Color(0xFFA0C020),
+                      isTitle: true,
+                      onPressed: (){
+                        print('Crear');
+                      }
+                  ),
+                  const SizedBox(
+                    width: 10.0,
+                  ),
+                  GenericButton(
+                      buttonText: 'Tipo de Pago',
+                      buttonColor: const Color(0xFF18843A),
+                      hoverColor: const Color(0xFFA0C020),
+                      isTitle: true,
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          barrierColor: Colors.black.withOpacity(0.5),
+                          builder: (BuildContext context) {
+                            return const Align(
+                                alignment: Alignment.centerRight,
+                                child: Material(
+                                  color: Colors.white,
+                                  child: Forms(
+                                      titleMenu: 'Tipo de Pago',
+                                      widgetItems: [
+                                        InputText(
+                                          label: 'Descripcion del tipo de pago',
+                                          isRequired: true,
+                                        ),
+                                      ]),
+                                ));
+                          },
+                        );
+                      })
+                ],
               ),
               const Spacer(),
             ],

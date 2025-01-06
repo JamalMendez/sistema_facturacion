@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:sistema_facturacion/view/widgets/buttons/generic_btn.dart';
-import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:sistema_facturacion/view/widgets/input_text.dart';
-import 'package:sistema_facturacion/view/widgets/menus/add_item_menu.dart';
-
+import 'package:sistema_facturacion/view/widgets/menus/forms.dart';
 import '../widgets/table_template.dart';
 
-class ClientPage extends StatelessWidget {
+class ClientPage extends StatefulWidget {
   const ClientPage({super.key});
+
+  @override
+  State<ClientPage> createState() => _ClientPageState();
+}
+
+class _ClientPageState extends State<ClientPage> {
+  bool isEnterprise = false;
 
   @override
   Widget build(BuildContext context) {
@@ -42,23 +47,38 @@ class ClientPage extends StatelessWidget {
                 buttonColor: const Color(0xFF18843A),
                 hoverColor: const Color(0xFFA0C020),
                 isTitle: true,
-                onPressed: (){
+                onPressed: () {
                   showDialog(
                     context: context,
                     barrierColor: Colors.black.withOpacity(0.5),
                     builder: (BuildContext context) {
-                      return Align(
-                        alignment: Alignment.centerRight,
-                        child: Material(
-                          color: Colors.white,
-                          child: AddItemMenu(
-                            titleMenu: 'titleMenu',
-                            widgetItems: [
-                              InputText(label: 'label'),
-                              InputText(label: 'label', isOnlyNumber: true,),
-                            ]
-                          ),
-                        )
+                      return StatefulBuilder(
+                        builder: (context, setState) {
+                          return Align(
+                              alignment: Alignment.centerRight,
+                              child: Material(
+                                color: Colors.white,
+                                child: Forms(
+                                    titleMenu: 'Formulario Del Cliente',
+                                    widgetItems: [
+                                      GenericButton(
+                                          buttonText: 'Es empresa: ${isEnterprise ? 'Si' : 'No'}',
+                                          onPressed: () {
+                                            setState(() {
+                                              isEnterprise = !isEnterprise;
+                                            });
+                                          }),
+                                      InputText(label: isEnterprise ? 'RNC' : 'Cedula', maxLengths: isEnterprise ? 8 : 11, isOnlyNumber: true, isRequired: true,),
+                                      const InputText(label: 'Nombre Completo', isRequired: true,),
+                                      const InputText(label: 'Email'),
+                                      const InputText(label: 'Direccion', maxLines: 3, isOnlyNumber: true,),
+                                      const InputText(label: 'Celular', maxLengths: 10, isOnlyNumber: true,),
+                                      const InputText(label: 'Telefono', maxLengths: 10,isOnlyNumber: true,),
+                                    ]
+                                ),
+                              )
+                          );
+                        },
                       );
                     },
                   );
